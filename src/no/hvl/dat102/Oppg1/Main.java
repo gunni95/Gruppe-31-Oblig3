@@ -1,10 +1,16 @@
 package no.hvl.dat102.Oppg1;
 
+import java.util.Random;
+
 public class Main {
 	public static void main(String[] args) {
-		Integer[] tab = {7, 4, 1, 9, 5, 2};
-		// String[] tab2 = {"b", "a"};
-		
+		Random random = new Random();
+		Integer[] tab = new Integer[50000];
+		for (int i = 0; i < 50000; i++) {
+			tab[i] = random.nextInt(10000);
+		}
+
+		long startTime = System.currentTimeMillis();
 		
 		// SorterTabell.utvalgssortering(tab, tab.length);
 		SorterTabell.sorteringVedInssetting(tab, tab.length);
@@ -12,8 +18,9 @@ public class Main {
 		for (Integer e : tab) {
 			System.out.print(e + " ");
 		}
-		
 		System.out.println();
+		double seconds = (System.currentTimeMillis() - startTime) / 1000.0;
+		System.out.println("Tid brukt: " + (seconds) + " sekunder");
 
 	}
 }

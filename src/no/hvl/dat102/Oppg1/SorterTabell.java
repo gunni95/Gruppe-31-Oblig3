@@ -1,7 +1,7 @@
 package no.hvl.dat102.Oppg1;
 
 public class SorterTabell {
-	// Byter om a[i] og a[j]. Antar at b�de i og j er lovlege indeksar i tabellen.
+	// Byter om a[i] og a[j]. Antar at både i og j er lovlege indeksar i tabellen.
 		private static void swap(Object[] a, int i, int j) {
 			Object temp = a[i];
 			a[i] = a[j];
@@ -9,8 +9,8 @@ public class SorterTabell {
 		}
 
 		// Utvalgssortering / Plukksortering (DAT100) (Selction sort)
-		// Sorterer dei f�rste n elmementa i tabellen. Kanskje litt uvanlig
-		// Kunne ogs� utelatt n og sortert heile tabellen.
+		// Sorterer dei første n elmementa i tabellen. Kanskje litt uvanlig
+		// Kunne også utelatt n og sortert heile tabellen.
 
 		public static <T extends Comparable<? super T>> void utvalgssortering(T[] a, int n) {
 			for (int i = 0; i < n - 1; i++) {
@@ -32,12 +32,24 @@ public class SorterTabell {
 
 		// Sorterer ein del av tabellen, start ... slutt (begge grensene er med)
 		public static <T extends Comparable<? super T>> void sorteringVedInssetting(T[] a, int start, int slutt) {
+			int minste = slutt;
+			for (int i = slutt - 1; i >= 0; i--) {
+				if (a[minste].compareTo(a[i]) > 0) {
+					minste = i;
+				}
+			}
+
+			T temp = a[minste];
+			a[minste] = a[0];
+			a[0] = temp;
+
+
 			for (int i = start + 1; i <= slutt; i++) {
 				T tmp = a[i];
 				int j = i - 1;  // siste i sortert del
 				boolean ferdig = false;
-				
-				while (!ferdig && j >= 0) {
+
+				while (!ferdig && j > 0) {
 					if (tmp.compareTo(a[j]) < 0) {
 						a[j + 1] = a[j];
 						j--;
