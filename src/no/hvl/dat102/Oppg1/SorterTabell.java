@@ -9,8 +9,8 @@ public class SorterTabell {
 		}
 
 		// Utvalgssortering / Plukksortering (DAT100) (Selction sort)
-		// Sorterer dei f�rste n elmementa i tabellen. Kanskje litt uvanlig
-		// Kunne ogs� utelatt n og sortert heile tabellen.
+		// Sorterer dei første n elmementa i tabellen. Kanskje litt uvanlig
+		// Kunne også utelatt n og sortert heile tabellen.
 
 		public static <T extends Comparable<? super T>> void utvalgssortering(T[] a, int n) {
 			for (int i = 0; i < n - 1; i++) {
