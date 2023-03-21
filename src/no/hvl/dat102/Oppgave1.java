@@ -1,5 +1,5 @@
 package no.hvl.dat102;
 
-public class Something {
+public class Oppgave1 {
     boolean funnet = false;
 }
