@@ -10,7 +10,7 @@ public class Oppgave1 {
 
         boolean funnet = false;
         int j = 99999;
-        int[] ints = random.ints(100000, 10,100000).toArray();
+        int[] ints = random.ints(100000,0, 1000000).toArray();
 
         int[] oppgA = Arrays.copyOf(ints, j);
 
@@ -18,7 +18,7 @@ public class Oppgave1 {
             int a = oppgA[j-1];
             int b = oppgA[j-2];
 
-            if (a > b) {
+            if (a < b) {
                 oppgA[j-1] = b;
                 oppgA[j-2] = a;
             }

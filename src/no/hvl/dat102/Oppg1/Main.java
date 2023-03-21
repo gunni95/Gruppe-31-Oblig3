@@ -1,4 +1,4 @@
-package no.hvl.dat102;
+package no.hvl.dat102.Oppg1;
 
 public class Main {
 	public static void main(String[] args) {

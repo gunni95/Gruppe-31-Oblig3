@@ -1,7 +1,7 @@
-package no.hvl.dat102;
+package no.hvl.dat102.Oppg1;
 
 public class SorterTabell {
-	// Byter om a[i] og a[j]. Antar at både i og j er lovlege indeksar i tabellen.
+	// Byter om a[i] og a[j]. Antar at bï¿½de i og j er lovlege indeksar i tabellen.
 		private static void swap(Object[] a, int i, int j) {
 			Object temp = a[i];
 			a[i] = a[j];
@@ -9,8 +9,8 @@ public class SorterTabell {
 		}
 
 		// Utvalgssortering / Plukksortering (DAT100) (Selction sort)
-		// Sorterer dei første n elmementa i tabellen. Kanskje litt uvanlig
-		// Kunne også utelatt n og sortert heile tabellen.
+		// Sorterer dei fï¿½rste n elmementa i tabellen. Kanskje litt uvanlig
+		// Kunne ogsï¿½ utelatt n og sortert heile tabellen.
 
 		public static <T extends Comparable<? super T>> void utvalgssortering(T[] a, int n) {
 			for (int i = 0; i < n - 1; i++) {
