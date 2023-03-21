@@ -38,35 +38,30 @@ public class SorterTabell {
 					minste = i;
 				}
 			}
+			swap(a, minste, start);
 
-			swap(a, 0, minste);
 
-
-			for (int i = start + 1; i < slutt; i+=2) {
-				T insert1 = a[i];
-				T insert2 = a[i+1];
-				int j = i - 1;  // siste i sortert del
-				boolean ferdig1 = false;
-				boolean ferdig2 = false;
-
-				while ((!ferdig1 || !ferdig2) && j > 0) {
-					if (!ferdig1 && insert1.compareTo(a[j]) < 0) {
-						a[j + 1] = a[j];
-						j--;
-					} else {
-						ferdig1 = true;
-					}
-
-					if (!ferdig2 && insert2.compareTo(a[j+1]) < 0) {
-						a[j + 2] = a[j];
-						j--;
-					} else {
-						ferdig2 = true;
-					}
+			for (int i = start +1; i < slutt; i+=2) {
+				T tmp = a[i];
+				T smull = a[i];
+				T large = a[i + 1];
+				if (smull.compareTo(large) > 0) {
+					smull = large;
+					large = tmp;
 				}
-				
-				a[j + 1] = insert1;
-				a[i + 2] = insert2;
+				int j = i - 1;  // siste i sortert del
+
+				while (large.compareTo(a[j]) < 0 && j > 0) {
+					a[j + 1] = a[j];
+					j--;
+				}
+				a[j + 1] = large;
+
+				while (smull.compareTo(a[j]) < 0 && j > 0) {
+					a[j + 1] = a[j];
+					j--;
+				}
+				a[j + 1] = smull;
 			}
 		} 
 }
