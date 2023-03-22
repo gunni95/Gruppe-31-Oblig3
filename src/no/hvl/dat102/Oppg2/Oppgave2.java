@@ -1,5 +1,7 @@
 package no.hvl.dat102.Oppg2;
 
+import no.hvl.dat102.Oppg1.SorterTabell;
+
 public class Oppgave2 {
     private static void swap(Object[] a, int i, int j) {
         Object temp = a[i];
@@ -57,11 +59,41 @@ public class Oppgave2 {
     }
     public static <T extends Comparable<? super T>> void quickSort(T[] a, int start, int slutt){
         if(slutt - start + 1 < 5000){
-            insertionSort(a, start, slutt);
+            SorterTabell.sorteringVedInssetting(a, start, slutt);
         } else{
             int pivotIndex = partition(a, start, slutt);
             quickSort(a, start, pivotIndex - 1);
             quickSort(a, pivotIndex + 1, slutt);
         }
+    }
+    public static <T extends Comparable<? super T>> void merge(T[] a, T[] tempArray, int start, int mid, int slutt){
+        int startHalvdel1 = start;
+        int sluttHalvdel1 = mid;
+        int startHalvdel2 = mid + 1;
+        int sluttHalvdel2 = slutt;
+        int index = 0;
+        while((startHalvdel1 <= sluttHalvdel1) && (startHalvdel2 <= sluttHalvdel2)){
+            if(a[startHalvdel1].compareTo(a[startHalvdel2]) >= 0){
+                tempArray[index] = a[startHalvdel1];
+                startHalvdel1++;
+            } else{
+                tempArray[index] = a[startHalvdel2];
+                startHalvdel2++;
+            }
+            index++;
+        }
+    }
+    public static <T extends Comparable<? super T>> void mergeSort(T[] a, T[] tempArray, int start, int slutt){
+        if(start < slutt){
+            int mid = slutt/2;
+            mergeSort(a, tempArray, start, mid);
+            mergeSort(a, tempArray, mid + 1, slutt);
+            merge(a, tempArray, start, mid, slutt);
+        }
+    }
+    public static <T extends Comparable<? super T>> void mergeSort(T[] a, int start, int slutt){
+        @SuppressWarnings(":)");
+        T[] tempArray = (T[])new Comparable<?>[a.length];
+        mergeSort(a, tempArray, start, slutt);
     }
 }
