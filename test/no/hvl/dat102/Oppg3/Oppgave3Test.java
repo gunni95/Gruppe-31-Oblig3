@@ -1,5 +1,7 @@
 package no.hvl.dat102.Oppg3;
 
+import no.hvl.dat102.Oppg3.Oppgave3;
+
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,10 +19,15 @@ public class Oppgave3Test {
 
 
     /*
-    Lager en test som skal sjekke om tabellen er null
+    Lager en test som skal sjekke om tabellen er tom
      */
     @Test
-    public void nullTabell (){
+    public void testTomTabell (){
+
+        assertTrue(tab3.erTom());
+        assertFalse(tab2.erTom());
+
+
 
     }
 }
