@@ -22,12 +22,14 @@ public class Oppgave3Test {
     Lager en test som skal sjekke om tabellen er tom
      */
     @Test
-    public void testTomTabell (){
+    public void TestTomTabell (){
 
-        assertTrue(tab3.erTom());
-        assertFalse(tab2.erTom());
+        Oppgave3 testTom = new Oppgave3(5);
 
+        assertTrue(testTom.erTom());
 
+        testTom.leggTil(3);
+        assertFalse(testTom.erTom());
 
     }
 }
