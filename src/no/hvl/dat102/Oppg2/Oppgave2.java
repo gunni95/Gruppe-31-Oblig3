@@ -82,6 +82,20 @@ public class Oppgave2 {
             }
             index++;
         }
+        if(startHalvdel1 == sluttHalvdel1){
+            while(startHalvdel2 <= sluttHalvdel2){
+                tempArray[index] = a[startHalvdel2];
+                index++;
+                startHalvdel2++;
+            }
+        } else{
+            while(startHalvdel1 <= sluttHalvdel1){
+                tempArray[index] = a[startHalvdel1];
+                index++;
+                startHalvdel1++;
+            }
+        }
+        a = tempArray;
     }
     public static <T extends Comparable<? super T>> void mergeSort(T[] a, T[] tempArray, int start, int slutt){
         if(start < slutt){
@@ -92,7 +106,6 @@ public class Oppgave2 {
         }
     }
     public static <T extends Comparable<? super T>> void mergeSort(T[] a, int start, int slutt){
-        @SuppressWarnings(":)");
         T[] tempArray = (T[])new Comparable<?>[a.length];
         mergeSort(a, tempArray, start, slutt);
     }

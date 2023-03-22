@@ -25,11 +25,14 @@ public class Oppgave3Test {
     public void TestTomTabell (){
 
         Oppgave3 testTom = new Oppgave3(5);
-
         assertTrue(testTom.erTom());
 
         testTom.leggTil(3);
         assertFalse(testTom.erTom());
+    }
+
+    @Test
+    public void TestSearchUnsorted(){
 
     }
 }

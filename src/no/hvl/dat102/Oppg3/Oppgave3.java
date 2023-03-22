@@ -7,7 +7,7 @@ public class Oppgave3<T> {
 
 
     public Oppgave3 (int start){
-        this.tabell = new T[start];
+        this.tabell = (T[]) (new Object[start]);
         this.antall = 0;
     }
 
