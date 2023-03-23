@@ -1,17 +1,17 @@
 package no.hvl.dat102.Oppg3;
 
-public class Oppgave3<T extends Comparable<T>> {
+public class Oppgave3<T> {
 
     private T[] tabell;
     private int antall;
 
 
     public Oppgave3(int start) {
-        this.tabell = (T[]) (new Object[start]);
+        this.tabell = (T[])(new Object[start]);
         this.antall = 0;
     }
 
-    public void leggTil(T element) {
+    public  void leggTil(T element) {
         if (!inneholder(element)) {
             if (antall == tabell.length) {
                 utvidKapasitet();
@@ -51,30 +51,6 @@ public class Oppgave3<T extends Comparable<T>> {
             indeks++;
         }
         return resultat;
-    }
-
-    public boolean binarySearch(T key) {
-        int first = 0;
-        int last = antall;
-        int mid = (last - first) / 2;
-
-        boolean funnet = false;
-        while (first <= last) {
-            if (tabell[mid].compareTo(key) < 0) {
-                first = mid + 1;
-            } else if (tabell[mid].compareTo(key) == 0) {
-                System.out.println("Element is found at index: " + mid);
-                funnet = true;
-            } else {
-                last = mid - 1;
-            }
-            mid = (first + last) / 2;
-        }
-        if (first > last) {
-            System.out.println("Element is not found!");
-        }
-
-        return funnet;
     }
 
     public static <T extends Comparable<T>> T binarySok(T[] data, int min, int maks, T el) {
