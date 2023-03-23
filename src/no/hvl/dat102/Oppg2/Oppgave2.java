@@ -12,14 +12,14 @@ public class Oppgave2 {
         T temp = a[start];
         T temp2 = a[slutt];
         T temp3 = a[mid];
-        if(a[start].compareTo(a[slutt]) < 0){
+        if(a[start].compareTo(a[slutt]) > 0){
             temp = a[slutt];
             temp2 = a[start];
         }
-        if(a[mid].compareTo(temp2) > 0) {
+        if(a[mid].compareTo(temp2) < 0) {
             temp3 = temp2;
             temp2 = a[mid];
-        } else if(a[mid].compareTo(temp) < 0){
+        } else if(a[mid].compareTo(temp) > 0){
             temp3 = temp;
             temp = a[mid];
         }
@@ -39,10 +39,10 @@ public class Oppgave2 {
         int indexFromRight = slutt - 2;
         boolean done = false;
         while(!done){
-            while(a[indexFromLeft].compareTo(pivotValue) > 0){
+            while(a[indexFromLeft].compareTo(pivotValue) < 0){
                 indexFromLeft++;
             }
-            while(a[indexFromRight].compareTo(pivotValue) < 0){
+            while(a[indexFromRight].compareTo(pivotValue) > 0){
                 indexFromRight--;
             }
             if(indexFromLeft < indexFromRight){
@@ -73,7 +73,7 @@ public class Oppgave2 {
         int sluttHalvdel2 = slutt;
         int index = 0;
         while((startHalvdel1 <= sluttHalvdel1) && (startHalvdel2 <= sluttHalvdel2)){
-            if(a[startHalvdel1].compareTo(a[startHalvdel2]) >= 0){
+            if(a[startHalvdel1].compareTo(a[startHalvdel2]) <= 0){
                 tempArray[index] = a[startHalvdel1];
                 startHalvdel1++;
             } else{
@@ -95,11 +95,16 @@ public class Oppgave2 {
                 startHalvdel1++;
             }
         }
-        a = tempArray;
+        System.out.print("( ");
+        for(int i=start;i<=slutt && tempArray[i] != null;i++){
+                System.out.print(tempArray[i] + " ");
+                a[i] = tempArray[i];
+        }
+        System.out.print(")");
     }
     public static <T extends Comparable<? super T>> void mergeSort(T[] a, T[] tempArray, int start, int slutt){
         if(start < slutt){
-            int mid = slutt/2;
+            int mid = (start + slutt)/2;
             mergeSort(a, tempArray, start, mid);
             mergeSort(a, tempArray, mid + 1, slutt);
             merge(a, tempArray, start, mid, slutt);
