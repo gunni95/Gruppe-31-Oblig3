@@ -30,6 +30,12 @@ public class Oppgave3<T> {
         return (funnet);
     }
 
+    public boolean binarySearch(T element) {
+
+
+
+    }
+
     private void utvidKapasitet() {
         T[] hjelpetabell = (T[]) (new Object[2 * tabell.length]);
         for (int i = 0; i < tabell.length; i++) {
