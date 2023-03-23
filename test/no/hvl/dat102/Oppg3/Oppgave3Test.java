@@ -25,6 +25,7 @@ public class Oppgave3Test {
     public void TestTomTabell (){
 
         Oppgave3 testTom = new Oppgave3(5);
+
         assertTrue(testTom.erTom());
 
         testTom.leggTil(3);
@@ -32,7 +33,19 @@ public class Oppgave3Test {
     }
 
     @Test
-    public void TestSearchUnsorted(){
+    public void TestSearch(){
+        Oppgave3 usortert = new Oppgave3<>(3);
+        usortert.leggTil(2);
+        usortert.leggTil(1);
+        usortert.leggTil(3);
 
+        assertTrue(usortert.inneholder(1));
+        assertFalse(usortert.inneholder(4));
+
+    }
+
+    @Test
+    public void TestNull(){
+        assertThrows(NullPointerException.class, () -> Oppgave3.sok(tab1, 0, tab1.length - 1, 1));
     }
 }
