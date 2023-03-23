@@ -1,12 +1,12 @@
 package no.hvl.dat102.Oppg3;
 
-public class Oppgave3<T> {
+public class Oppgave3<T extends Comparable<T>> {
 
     private T[] tabell;
     private int antall;
 
 
-    public Oppgave3 (int start){
+    public Oppgave3(int start) {
         this.tabell = (T[]) (new Object[start]);
         this.antall = 0;
     }
@@ -20,11 +20,13 @@ public class Oppgave3<T> {
             antall++;
         }
     }
+
     public boolean inneholder(T element) {
         boolean funnet = false;
-        for (int i = 0; (i < antall) && (!funnet); i++) {
+        for (int i = 0; i < antall; i++) {
             if (tabell[i].equals(element)) {
                 funnet = true;
+                break;
             }
         }
         return (funnet);
@@ -32,9 +34,7 @@ public class Oppgave3<T> {
 
     private void utvidKapasitet() {
         T[] hjelpetabell = (T[]) (new Object[2 * tabell.length]);
-        for (int i = 0; i < tabell.length; i++) {
-            hjelpetabell[i] = tabell[i];
-        }
+        System.arraycopy(tabell, 0, hjelpetabell, 0, tabell.length);
         tabell = hjelpetabell;
     }
 
@@ -51,6 +51,42 @@ public class Oppgave3<T> {
             indeks++;
         }
         return resultat;
+    }
+
+    public boolean binarySearch(T key) {
+        int first = 0;
+        int last = antall;
+        int mid = (last - first) / 2;
+
+        boolean funnet = false;
+        while (first <= last) {
+            if (tabell[mid].compareTo(key) < 0) {
+                first = mid + 1;
+            } else if (tabell[mid].compareTo(key) == 0) {
+                System.out.println("Element is found at index: " + mid);
+                funnet = true;
+            } else {
+                last = mid - 1;
+            }
+            mid = (first + last) / 2;
+        }
+        if (first > last) {
+            System.out.println("Element is not found!");
+        }
+
+        return funnet;
+    }
+
+    public static <T extends Comparable<T>> T binarySok(T[] data, int min, int maks, T el) {
+        int mid = (min - maks) / 2;
+
+        if (data[mid].compareTo(el) < 0) {
+            return binarySok(data, 0, mid-1, el);
+        } else if (data[mid].compareTo(el) == 0) {
+            return data[mid];
+        } else {
+            return binarySok(data, mid+1, maks, el);
+        }
     }
 
     public boolean erTom() {

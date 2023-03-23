@@ -59,6 +59,8 @@ public class Oppgave3Test {
 
     }
 
+
+
     /*
     Tester etter null tabell
      */
