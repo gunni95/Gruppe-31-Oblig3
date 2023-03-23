@@ -1,4 +1,4 @@
-package no.hvl.dat102;
+package no.hvl.dat102.Oppg3;
 
 public class BinaerTreNode<T> {
 	private T element;

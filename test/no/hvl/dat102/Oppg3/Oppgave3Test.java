@@ -1,10 +1,7 @@
 package no.hvl.dat102.Oppg3;
 
-import no.hvl.dat102.Oppg3.Oppgave3;
-
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeEach;
 
 
 public class Oppgave3Test {
@@ -12,10 +9,10 @@ public class Oppgave3Test {
     /*
     Vi lager testtabeller for tilfellene usortert, sortert, tom og null.
      */
-    private int[] tab1 = {24,3,14,1,17};
-    private int[] tab2 = {4,5,10};
-    private int[] tab3 = {};
-    private int[] tab4 = null;
+    private final Integer[] tab1 = {24,3,14,1,17};
+    private final Integer[] tab2 = {4,5,10};
+    private final Integer[] tab3 = {};
+    private final Integer[] tab4 = null;
 
 
     /*
@@ -24,7 +21,7 @@ public class Oppgave3Test {
     @Test
     public void TestTomTabell (){
 
-        Oppgave3 testTom = new Oppgave3(5);
+        Oppgave3<Integer> testTom = new Oppgave3<>(5);
         assertTrue(testTom.erTom());
 
         testTom.leggTil(3);
@@ -36,7 +33,7 @@ public class Oppgave3Test {
      */
     @Test
     public void TestSearchUnsorted(){
-        Oppgave3 usortert = new Oppgave3(3);
+        Oppgave3<Integer> usortert = new Oppgave3<>(3);
         usortert.leggTil(2);
         usortert.leggTil(1);
         usortert.leggTil(3);
@@ -51,7 +48,7 @@ public class Oppgave3Test {
      */
     @Test
     public void TestSearchSorted(){
-        Oppgave3 sortert = new Oppgave3(3);
+        Oppgave3<Integer> sortert = new Oppgave3<Integer>(3);
 
         sortert.leggTil(2);
         sortert.leggTil(3);
@@ -67,6 +64,6 @@ public class Oppgave3Test {
      */
     @Test
     public void TestNull(){
-        assertThrows(NullPointerException.class, () -> Oppgave3.sok(tab1, 0, tab1.length - 1, 1));
+        assertThrows(NullPointerException.class, () -> Oppgave3.sok(tab4, 0, tab1.length - 1, 1));
     }
 }
