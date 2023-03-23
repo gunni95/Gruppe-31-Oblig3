@@ -6,12 +6,12 @@ public class Oppgave3<T> {
     private int antall;
 
 
-    public Oppgave3 (int start){
-        this.tabell = (T[]) (new Object[start]);
+    public Oppgave3(int start) {
+        this.tabell = (T[])(new Object[start]);
         this.antall = 0;
     }
 
-    public void leggTil(T element) {
+    public  void leggTil(T element) {
         if (!inneholder(element)) {
             if (antall == tabell.length) {
                 utvidKapasitet();
@@ -20,11 +20,13 @@ public class Oppgave3<T> {
             antall++;
         }
     }
+
     public boolean inneholder(T element) {
         boolean funnet = false;
-        for (int i = 0; (i < antall) && (!funnet); i++) {
+        for (int i = 0; i < antall; i++) {
             if (tabell[i].equals(element)) {
                 funnet = true;
+                break;
             }
         }
         return (funnet);
@@ -32,9 +34,7 @@ public class Oppgave3<T> {
 
     private void utvidKapasitet() {
         T[] hjelpetabell = (T[]) (new Object[2 * tabell.length]);
-        for (int i = 0; i < tabell.length; i++) {
-            hjelpetabell[i] = tabell[i];
-        }
+        System.arraycopy(tabell, 0, hjelpetabell, 0, tabell.length);
         tabell = hjelpetabell;
     }
 
@@ -51,6 +51,18 @@ public class Oppgave3<T> {
             indeks++;
         }
         return resultat;
+    }
+
+    public static <T extends Comparable<T>> T binarySok(T[] data, int min, int maks, T el) {
+        int mid = (min - maks) / 2;
+
+        if (data[mid].compareTo(el) < 0) {
+            return binarySok(data, 0, mid-1, el);
+        } else if (data[mid].compareTo(el) == 0) {
+            return data[mid];
+        } else {
+            return binarySok(data, mid+1, maks, el);
+        }
     }
 
     public boolean erTom() {
