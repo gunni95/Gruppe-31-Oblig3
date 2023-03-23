@@ -25,16 +25,18 @@ public class Oppgave3Test {
     public void TestTomTabell (){
 
         Oppgave3 testTom = new Oppgave3(5);
-
         assertTrue(testTom.erTom());
 
         testTom.leggTil(3);
         assertFalse(testTom.erTom());
     }
 
+    /*
+    Tester om søk finner element i usortert
+     */
     @Test
-    public void TestSearch(){
-        Oppgave3 usortert = new Oppgave3<>(3);
+    public void TestSearchUnsorted(){
+        Oppgave3 usortert = new Oppgave3(3);
         usortert.leggTil(2);
         usortert.leggTil(1);
         usortert.leggTil(3);
@@ -44,6 +46,25 @@ public class Oppgave3Test {
 
     }
 
+    /*
+    Tester om søk finner element i sortert
+     */
+    @Test
+    public void TestSearchSorted(){
+        Oppgave3 sortert = new Oppgave3(3);
+
+        sortert.leggTil(2);
+        sortert.leggTil(3);
+        sortert.leggTil(4);
+
+        assertTrue(sortert.inneholder(3));
+        assertFalse(sortert.inneholder(5));
+
+    }
+
+    /*
+    Tester etter null tabell
+     */
     @Test
     public void TestNull(){
         assertThrows(NullPointerException.class, () -> Oppgave3.sok(tab1, 0, tab1.length - 1, 1));
