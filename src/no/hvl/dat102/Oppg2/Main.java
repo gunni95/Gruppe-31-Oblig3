@@ -1,23 +1,33 @@
 package no.hvl.dat102.Oppg2;
+import no.hvl.dat102.Oppg1.SorterTabell;
+
 import java.util.Random;
 
 public class Main {
     public static void main(String[] args){
         Random tall = new Random();
-        Integer[] tallsamling = new Integer[10];
+        Integer[] tallsamling = new Integer[32000];
+        int repetisjoner = 1;
+        long tidtotal = 0;
 
-        for(int i=0;i<tallsamling.length;i++){
-            tallsamling[i] = tall.nextInt(100);
-        }
+        for(int j=0;j<repetisjoner;j++){
 
-        long tid = System.currentTimeMillis();
+            for (int i = 0; i < tallsamling.length; i++) {
+                tallsamling[i] = tall.nextInt(1000000);
+                //System.out.print(tallsamling[i] + " ");
+            }
+            long tid = System.currentTimeMillis();
 
-        Oppgave2.mergeSort(tallsamling, 0, 9);
+            //SorterTabell.utvalgssortering(tallsamling, tallsamling.length);
+            Oppgave2.mergeSort(tallsamling, 0, tallsamling.length - 1);
 
-        System.out.println((System.currentTimeMillis() - tid) / 1000);
-        System.out.println();
+            tidtotal += (System.currentTimeMillis() - tid);
+
+           /* System.out.println();
         for(int i=0;i<tallsamling.length;i++){
             System.out.print(tallsamling[i] + " ");
+        }*/
         }
+        System.out.println("Snitt i ms: " + (tidtotal/repetisjoner));
     }
 }

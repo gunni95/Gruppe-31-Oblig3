@@ -71,7 +71,7 @@ public class Oppgave2 {
         int sluttHalvdel1 = mid;
         int startHalvdel2 = mid + 1;
         int sluttHalvdel2 = slutt;
-        int index = 0;
+        int index = start;
         while((startHalvdel1 <= sluttHalvdel1) && (startHalvdel2 <= sluttHalvdel2)){
             if(a[startHalvdel1].compareTo(a[startHalvdel2]) <= 0){
                 tempArray[index] = a[startHalvdel1];
@@ -82,25 +82,22 @@ public class Oppgave2 {
             }
             index++;
         }
-        if(startHalvdel1 == sluttHalvdel1){
+        if(startHalvdel1 > sluttHalvdel1){
             while(startHalvdel2 <= sluttHalvdel2){
                 tempArray[index] = a[startHalvdel2];
                 index++;
                 startHalvdel2++;
             }
-        } else{
+        } else if(startHalvdel2 > sluttHalvdel2){
             while(startHalvdel1 <= sluttHalvdel1){
                 tempArray[index] = a[startHalvdel1];
                 index++;
                 startHalvdel1++;
             }
         }
-        System.out.print("( ");
         for(int i=start;i<=slutt && tempArray[i] != null;i++){
-                System.out.print(tempArray[i] + " ");
                 a[i] = tempArray[i];
         }
-        System.out.print(")");
     }
     public static <T extends Comparable<? super T>> void mergeSort(T[] a, T[] tempArray, int start, int slutt){
         if(start < slutt){
@@ -113,5 +110,13 @@ public class Oppgave2 {
     public static <T extends Comparable<? super T>> void mergeSort(T[] a, int start, int slutt){
         T[] tempArray = (T[])new Comparable<?>[a.length];
         mergeSort(a, tempArray, start, slutt);
+    }
+    public static <T extends Comparable<? super T>> void aToString(T[] a){
+        System.out.println();
+        System.out.print("( ");
+        for(int i=0;i<a.length;i++){
+            System.out.print(a[i] + " ");
+        }
+        System.out.print(")");
     }
 }
