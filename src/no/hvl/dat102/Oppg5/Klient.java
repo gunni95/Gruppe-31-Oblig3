@@ -4,7 +4,11 @@ public class Klient {
 
     public static void main(String[] args){
 
-        BinaerTreNode nyttTre = new BinaerTreNode(5);
+        BS_Tre nyttTre = new BS_Tre();
+
+        nyttTre.leggTil(3);
+
+
 
 
 

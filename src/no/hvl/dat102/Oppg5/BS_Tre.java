@@ -15,6 +15,10 @@ public class BS_Tre<T extends Comparable<? super T>> implements SoektreInterface
 	public BS_Tre(T element) {
 		rot = new BinaerTreNode<T>(element);
 	}
+
+	public BinaerTreNode<T> getRot(){
+		return this.rot;
+	}
 	
 	/**
 	 * Søker etter et gitt element i treet.
@@ -132,7 +136,7 @@ public class BS_Tre<T extends Comparable<? super T>> implements SoektreInterface
 	public int hoyde(BinaerTreNode<T> rot){
 
 		if (rot == null){
-			return 0;
+			return -1;
 		}
 		return 1 + Math.max(hoyde(rot.getVenstre()),hoyde(rot.getHogre()));
 	}
