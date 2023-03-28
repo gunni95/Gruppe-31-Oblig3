@@ -5,6 +5,19 @@ import java.util.Random;
 public class Klient {
 
     public static void main(String[] args){
+
+        /*  Oppgave a)
+        nyttTre.leggTil(3);
+        nyttTre.leggTil(5);
+        nyttTre.leggTil(2);
+        nyttTre.leggTil(6);
+        nyttTre.leggTil(10);
+        nyttTre.leggTil(1);
+        nyttTre.leggTil(8);
+
+        System.out.println("Høyde er nå: " + nyttTre.hoyde(nyttTre.getRot()));
+         */
+
         int antallNoder = 0;
         int minHoyde = 100000000;
         int maxHoyde = 0;
@@ -15,16 +28,6 @@ public class Klient {
         for(int i=0;i<repitisjoner;i++) {
 
             BS_Tre nyttTre = new BS_Tre();
-
-            /*nyttTre.leggTil(3);
-            nyttTre.leggTil(5);
-            nyttTre.leggTil(2);
-            nyttTre.leggTil(6);
-            nyttTre.leggTil(10);
-            nyttTre.leggTil(1);
-            nyttTre.leggTil(8);*/
-
-            //System.out.println("Høyde er nå: " + nyttTre.hoyde(nyttTre.getRot()));
 
             for(int j=0;j<1023;j++){
                 nyttTre.leggTil(random.nextInt(5000));
