@@ -126,4 +126,13 @@ public class BS_Tre<T extends Comparable<? super T>> implements SoektreInterface
 		return null;
 	}
 
+	/**
+	 * Lager en rekursiv metode for å finne høyden
+	 */
+	public int hogde(T element){
+
+		return 0;
+
+	}
+
 }
