@@ -126,4 +126,15 @@ public class BS_Tre<T extends Comparable<? super T>> implements SoektreInterface
 		return null;
 	}
 
+	/**
+	 * Lager en rekursiv metode for å finne høyden
+	 */
+	public int hoyde(BinaerTreNode<T> rot){
+
+		if (rot == null){
+			return 0;
+		}
+		return 1 + Math.max(hoyde(rot.getVenstre()),hoyde(rot.getHogre()));
+	}
+
 }

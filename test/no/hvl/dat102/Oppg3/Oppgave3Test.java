@@ -57,6 +57,16 @@ public class Oppgave3Test {
         assertTrue(sortert.inneholder(3));
         assertFalse(sortert.inneholder(5));
 
+        assertEquals(5, Oppgave3.sok(tab2, 0, tab2.length-1, 5));
+    }
+
+    @Test
+    public void TestBinarySearchSorted(){
+        assertEquals(12, Oppgave3.binarySok(tab2, 0, tab2.length - 1, 12));
+        assertNull(Oppgave3.binarySok(tab2, 0, tab2.length - 1, 99));;
+        assertEquals(3, Oppgave3.binarySok(tab1, 0, tab1.length -1, 3));
+        assertThrows(StackOverflowError.class, () -> Oppgave3.binarySok(tab1, 0, tab1.length -1 , 1));
+
     }
 
 
