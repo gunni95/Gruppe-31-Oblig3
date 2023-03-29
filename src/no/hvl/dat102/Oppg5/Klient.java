@@ -23,13 +23,14 @@ public class Klient {
         int maxHoyde = 0;
         int sumHoyde = 0;
         int repitisjoner = 100;
+        int n = 1023;
         Random random = new Random();
 
         for(int i=0;i<repitisjoner;i++) {
 
             BS_Tre nyttTre = new BS_Tre();
 
-            for(int j=0;j<1023;j++){
+            for(int j=0;j<n;j++){
                 nyttTre.leggTil(random.nextInt(5000));
                 antallNoder++;
             }
@@ -43,7 +44,12 @@ public class Klient {
             }
         }
 
-        System.out.println("Antall noder: " + antallNoder + ". Minimale teoretiske hoyde: [insert formel]. " + "Maximale teoretiske hoyde: [insert formel]. " + "Minste hoyde: " + minHoyde + ". Storste hoyde: " + maxHoyde + ". Snitthoyde: " + sumHoyde / repitisjoner);
+        System.out.println("Antall noder: " + antallNoder  + "\n"
+                + "Minimale teoretiske hoyde: " + Math.ceil(Math.log(n+1) / Math.log(2)) + "\n"
+                + "Maximale teoretiske hoyde: " + n + "\n"
+                + "Minste hoyde: " + minHoyde + "\n"
+                + "Storste hoyde: " + maxHoyde + "\n"
+                + "Snitthoyde: " + sumHoyde / repitisjoner);
     }
 
 }
