@@ -23,7 +23,7 @@ public class Klient {
         int maxHoyde = 0;
         int sumHoyde = 0;
         int repitisjoner = 100;
-        int n = 1023;
+        int n = 8191;
         Random random = new Random();
 
         for(int i=0;i<repitisjoner;i++) {
@@ -45,7 +45,7 @@ public class Klient {
         }
 
         System.out.println("Antall noder: " + antallNoder  + "\n"
-                + "Minimale teoretiske hoyde: " + Math.ceil(Math.log(n+1) / Math.log(2)) + "\n"
+                + "Minimale teoretiske hoyde: " + (Math.log(n+1) / Math.log(2)) + "\n"
                 + "Maximale teoretiske hoyde: " + n + "\n"
                 + "Minste hoyde: " + minHoyde + "\n"
                 + "Storste hoyde: " + maxHoyde + "\n"
