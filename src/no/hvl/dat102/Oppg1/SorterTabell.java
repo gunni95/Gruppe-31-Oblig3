@@ -52,10 +52,10 @@ public class SorterTabell {
 				int j = i - 1;  // siste i sortert del
 
 				while (large.compareTo(a[j]) < 0 && j > 0) {
-					a[j + 1] = a[j];
+					a[j + 2] = a[j];
 					j--;
 				}
-				a[j + 1] = large;
+				a[j + 2] = large;
 
 				while (smull.compareTo(a[j]) < 0 && j > 0) {
 					a[j + 1] = a[j];
@@ -63,5 +63,12 @@ public class SorterTabell {
 				}
 				a[j + 1] = smull;
 			}
+			T sluttTemp = a[slutt];
+			int j = slutt - 1;
+			while (sluttTemp.compareTo(a[j]) < 0 && j > 0) {
+				a[j + 1] = a[j];
+				j--;
+			}
+			a[j + 1] = sluttTemp;
 		} 
 }

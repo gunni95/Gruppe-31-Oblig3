@@ -23,7 +23,7 @@ public class Klient {
         int maxHoyde = 0;
         int sumHoyde = 0;
         int repitisjoner = 100;
-        int n = 8191;
+        int n = 1023;
         Random random = new Random();
 
         for(int i=0;i<repitisjoner;i++) {
@@ -50,6 +50,7 @@ public class Klient {
                 + "Minste hoyde: " + minHoyde + "\n"
                 + "Storste hoyde: " + maxHoyde + "\n"
                 + "Snitthoyde: " + sumHoyde / repitisjoner);
+
     }
 
 }

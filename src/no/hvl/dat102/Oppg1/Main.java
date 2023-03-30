@@ -6,7 +6,7 @@ public class Main {
 	public static void main(String[] args) {
 		Random random = new Random();
 		Integer[] tab = new Integer[50000];
-		for (int i = 0; i < 50000; i++) {
+		for (int i = 0; i < tab.length; i++) {
 			tab[i] = random.nextInt(10000);
 		}
 
